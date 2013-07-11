@@ -22,12 +22,17 @@
 			var cnt = 0;
 			var maxCnt = 3;
 			var stopPropagation = false;
+			var ev = {
+				  start : 'touchstart'
+				, move : 'touchmove'
+				, end : 'touchend'
+			};
 
-			//.touch(fn);
+			//.longTouch(fn);
 			if( typeof params !== "object" ){
 				fn = params ;
 				params = null;
-			//.touch(params,fn);
+			//.longTouch(params,fn);
 			}else{
 				if( typeof params.selector !== 'undefined' ) selector = params.selector;
 				if( typeof params.data !== 'undefined' ) data = params.data;
@@ -44,10 +49,10 @@
 			var startFn = function( e ){
 				run = false;
 				cnt = 0;
-				if( stopPropagetion ) e.stopPropagation();
+				if( stopPropagation ) e.stopPropagation();
 				tid = setTimeout(function( me ){
 					fn.call( me, e );
-					if( stopPropagetion ){
+					if( stopPropagation ){
 						e.stopImmediatePropagation();
 						run = true;
 					}
