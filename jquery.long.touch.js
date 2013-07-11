@@ -77,5 +77,6 @@
 				jQuery.event.add( this, ev.move, moveFn, data, selector );
 				jQuery.event.add( this, ev.end, endFn, data, selector );
 			});
+		}
 })(jQuery);
 
