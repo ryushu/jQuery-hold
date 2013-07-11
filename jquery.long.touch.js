@@ -78,5 +78,6 @@
 				jQuery.event.add( this, ev.end, endFn, data, selector );
 			});
 		}
+	});
 })(jQuery);
 
